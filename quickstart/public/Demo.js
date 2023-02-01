@@ -29087,11 +29087,7 @@
       const Video = require('twilio-video');
 
 
-  
-    
-    
-    
-    
+
     
       // Join to the Room with the given AccessToken and ConnectOptions.
       const room = await connect(token, connectOptions);
@@ -29126,10 +29122,12 @@
     
     /* function called muteOrUnmuteYourMedia that takes in three arguments: room, kind, and action.
 
-    It mutes or unmutes either audio or video tracks of the local participant in a WebRTC room (specified by room argument) 
+    It mutes or unmutes either audio or video tracks of the local participant in a WebRTC room 
+    (specified by room argument) 
     based on the kind and action arguments.
 
-    If kind argument is 'audio', it gets the audio tracks of the local participant, otherwise it gets the video tracks.
+    If kind argument is 'audio', it gets the audio tracks of the local participant,
+    otherwise it gets the video tracks.
 
     */
 
@@ -29184,10 +29182,45 @@
       }
        //BAK mute audio video click handlees
        // Muting audio track and video tracks click handlers
+
+        /*
+        a click event handler muteAudioBtn for HTML button id with the identifier "muteAudioBtn". 
+        When the button is clicked, the JS performs the following actions:
+
+        It checks the class list of the "muteAudioBtn" button to see if it contains the class "muted".
+        If the button does contain the "muted" class, it sets the variable "mute" to false. If it does not, 
+        the variable is set to true.
+
+        The code then retrieves two elements from the DOM with the IDs "activeIcon" and "inactiveIcon".
+        It appears that the purpose of this code is to toggle the mute state of an audio element
+        when the button is clicked
+
+        */
+
        muteAudioBtn.onclick = () => {
         const mute = !muteAudioBtn.classList.contains('muted');
         const activeIcon = document.getElementById('activeIcon');
         const inactiveIcon = document.getElementById('inactiveIcon');
+
+        /*
+        
+        Part of the click event handler for the "muteAudioBtn" button. It performs the following actions:
+
+        -If the "mute" variable is set to "true", the function "muteYourAudio" is called with the "room" argument.
+        -The class "muted" is added to the "muteAudioBtn" button.
+        -The text content of the "muteAudioBtn" button is set to "Enable Audio".
+        -The ID of the "activeIcon" element is set to "inactiveIcon" and the ID 
+        of the "inactiveIcon" element is set to "activeIcon".
+        -If the "mute" variable is set to "false", the function "unmuteYourAudio" 
+        is called with the "room" argument.
+        - The class "muted" is removed from the "muteAudioBtn" button.
+
+        The text content of the "muteAudioBtn" button is set to "Disable Audio".
+        The ID of the "activeIcon" element is set to "inactiveIcon"
+         and the ID of the "inactiveIcon" element is set to "activeIcon".
+        */
+
+
     
         if(mute) {
           muteYourAudio(room);
@@ -29218,12 +29251,26 @@
           muteVideoBtn.innerText = 'Disable Video';
         }
       }
-     //End of local media tracks example
+
+
+     //End of local media tracks example BAK
 
 
 
       // Update the active Participant when changed, only if the user has not
       // pinned any particular Participant as the active Participant.
+
+
+      /*
+    event listener for a "dominantSpeakerChanged" event on a "room" object. 
+    The event listener is a callback function that will be executed whenever the dominant speaker in the room changes.
+
+    The code inside the callback function performs the following actions:
+
+    It checks the value of the "isActiveParticipantPinned" variable.
+     If "isActiveParticipantPinned" is set to "false", the function "setCurrentActiveParticipant" is called with the "room" argument.
+            */
+
       room.on('dominantSpeakerChanged', () => {
         if (!isActiveParticipantPinned) {
           setCurrentActiveParticipant(room);
@@ -29494,7 +29541,17 @@
           };
         }
     
-       
+        /*
+
+        Defines a click event handler for an element with a jQuery object reference stored in the "$leave" variable.
+        When the element is clicked, the following actions occur:
+
+        The click event handler is unbound from the element using the "off" method and passing in the "onLeave" function as an argument.
+        The "disconnect" method is called on the "room" object.
+        This code likely represents a behavior in a real-time communication application, such as a video conferencing system. When the element is clicked, the code disconnects from the room and unbinds the click event from the element to prevent multiple disconnections from happening.
+
+
+        */
     
         room.once('disconnected', (room, error) => {
           // Clear the event handlers on document and window..
