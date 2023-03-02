@@ -29271,15 +29271,15 @@
      If "isActiveParticipantPinned" is set to "false", the function "setCurrentActiveParticipant" is called with the "room" argument.
             */
 
-      room.on('dominantSpeakerChanged', () => {
-        if (!isActiveParticipantPinned) {
-          setCurrentActiveParticipant(room);
-        }
-      });
 
 
-
-      // BAK Join Room - Snapshot Example
+      // BAK 
+        
+        
+        
+        
+        
+        - Snapshot Example
 
 
 
