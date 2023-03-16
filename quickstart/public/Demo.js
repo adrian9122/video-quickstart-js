@@ -29257,29 +29257,8 @@
 
 
 
-      // Update the active Participant when changed, only if the user has not
-      // pinned any particular Participant as the active Participant.
 
-
-      /*
-    event listener for a "dominantSpeakerChanged" event on a "room" object. 
-    The event listener is a callback function that will be executed whenever the dominant speaker in the room changes.
-
-    The code inside the callback function performs the following actions:
-
-    It checks the value of the "isActiveParticipantPinned" variable.
-     If "isActiveParticipantPinned" is set to "false", the function "setCurrentActiveParticipant" is called with the "room" argument.
-            */
-
-
-
-      // BAK 
-        
-        
-        
-        
-        
-        - Snapshot Example
+      // BAK Join Room - Snapshot Example
 
 
 
@@ -29322,10 +29301,22 @@
     //
       // Display a snapshot of the LocalVideoTrack on the canvas.
       //videoTrack = localVideoTrack;
+
+    /*
+
+    */
+
+
+
+
+
+
       takeSnapshot.onclick = function() {
         setSnapshotSizeToVideo(el, localVideoTrack);
         takeLocalVideoSnapshot(video, localVideoTrack, el);
       };
+
+
     
       function takeLocalVideoSnapshot(video, localVideoTrack, snapshot) {
         if (window.ImageCapture) {
@@ -29470,12 +29461,6 @@
 
 
       /*
-
-
-
-      
-
-
     /*
 
             The code adds an "change" event listener to the DOM element with the reference
