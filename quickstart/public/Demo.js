@@ -28502,7 +28502,7 @@
       "name": "twilio-video",
       "title": "Twilio Video",
       "description": "Twilio Video JavaScript Library",
-      "version": "2.21.2",
+      "version": "2.26.2",
       "homepage": "https://twilio.com",
       "author": "Mark Andrus Roberts <mroberts@twilio.com>",
       "contributors": [
